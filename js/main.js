@@ -1,26 +1,94 @@
-document.getElementById("header").innerHTML=`<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-<div class="container">
-  <a class="navbar-brand" href="index.html"> <img src="./imagen/ensigna1.png" height="100" alt="imagen"> </a>
-  <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavId">
-      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-              <a class="nav-link active" href="index.html" aria-current="page">INICIO <span class="visually-hidden">(current)</span></a>
-          </li>
-          
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PRODUCTOS</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownId">
-                  <a class="dropdown-item" href="tractores.html">TRACTORES</a>
-                  <a class="dropdown-item" href="sembradoras.html">SEMBRADORAS</a>
-                  <a class="dropdown-item" href="cosechadoras.html">COSECHADORAS</a>
-                  
-              </div>
-          </li>
-      </ul>
-  </div>
+cad = `
+<div class="logo">
+<a href="index.html"><img src="./img/logoempresa/ensigna1.png" alt="imagen"></a>
+
 </div>
-</nav>`
+<div class="nav">
+<a class="navheader" href="index.html">Inicio</a>
+<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PRODUCTOS</a>
+<div class="dropdown-menu"  aria-labelledby="dropdownId">
+    <a class="dropdown-item" style="color:black"  href="tractor.html">TRACTORES</a>
+    <a class="dropdown-item" style="color:black" href="plantadora.html">SEMBRADORAS</a>
+    <a class="dropdown-item" style="color:black" href="cosechadora.html">COSECHADORAS</a>
+    
+</div>
+<a class="navheader" href="contacto.html">Contactanos</a>
+<a class="navheader" href="nosotros.html">Nosotros</a>                
+</div>
+
+<div class="registro">
+
+<a id="largo" href="login.html"><i class="fa-solid fa-user"></i> Iniciar sesión</a>
+<a id="solo" href="login.html"><i class="fa-solid fa-user"></i></a>
+
+</div>
+
+<div class="slogan">
+<h2>Tu cosecha, nuestro compromiso.</h2>
+</div>  
+    `
+    document.querySelector("header").innerHTML = cad
+
+
+
+
+cad = `
+<div class="redsocial">
+            <a id="ig" href="https://www.instagram.com/" target="_blank">
+                <img src="img/instagram.png" alt="Instagram">
+            </a>
+            <a id="face" href="https://www.facebook.com/">
+                <img src="./img/facebook.png" alt="Facebook">
+            </a>
+            <a id="tw" href="https://twitter.com/">
+                <img src="./img/logotipo-de-twitter.png" alt="Twitter">
+            </a>
+
+        </div>
+
+        <div class="links">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="tractor.html">Tractores</a></li>
+                <li><a href="plantadora.html">Sembradoras</a></li>
+                <li><a href="cosechadora.html">Cosechadoras</a></li>
+                <li><a href="contacto.html" target="_blank">Contactanos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                
+                              
+            </ul>
+
+        </div>
+        <div class="copyright">
+            <p>Copyright 2023 - E N S I G N A </p>
+            <p>Developed by Grupo Maquinarias Agrícolas </p>
+        </div>
+`
+document.querySelector("footer").innerHTML = cad
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+}
+
